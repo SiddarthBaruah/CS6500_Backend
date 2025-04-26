@@ -7,13 +7,15 @@ import CertificateArtifact from '../../build/contracts/CertificateRegistry_userI
 import path from 'path';
 import { error } from 'console';
 const truffleConfig = require(path.resolve(process.cwd(), 'truffle-config.js'));
-
+const HttpProvider = Web3.providers.HttpProvider as any;
+if (typeof HttpProvider.prototype.sendAsync !== 'function') {
+  HttpProvider.prototype.sendAsync = HttpProvider.prototype.send;
+}
 @Injectable()
 export class TruffleService implements OnModuleInit {
   private web3: Web3;
   private instance: any;
   private defaultAccount: string;
-
   constructor(private cfg: ConfigService) {}
 
   async onModuleInit() {
@@ -21,36 +23,43 @@ export class TruffleService implements OnModuleInit {
     const netCfg = truffleConfig.networks.development;
     const url = `http://${netCfg.host || '127.0.0.1'}:${netCfg.port}`;
     // 1) build an HTTP provider…
-    // const provider = new Web3.providers.HttpProvider(url) as any;
-
+    const provider = new Web3.providers.HttpProvider(url) as any;
+    if (typeof provider.sendAsync !== 'function') {
+      provider.sendAsync = provider.send.bind(provider);
+    }
     // // 2) make the “on”, “once”, etc., no-ops so Truffle doesn’t blow up:
-    // provider.on = () => {};
+    provider.on = () => {};
     // provider.once = () => {};
+
     // provider.removeListener = () => {};
     // this.web3 = new Web3(provider);
-    const web3 = new Web3(url);
-
-    // 2) get Ganache’s unlocked accounts
-    const accounts = await this.web3.eth.getAccounts();
-    this.defaultAccount = accounts[0];
+    this.web3 = new Web3(provider);
 
     // 3) wrap your Truffle artifact
     const Certificate = contract(CertificateArtifact as any);
-    // Certificate.setProvider(provider);
+    Certificate.setProvider(provider);
+
+    // Explicitly set the network ID to match the deployed contract
+    const networkId = await this.web3.eth.net.getId();
+    Certificate.network_id = networkId;
+    const accounts = await this.web3.eth.getAccounts();
+    this.defaultAccount = accounts[0];
     // 4) grab the deployed instance
     this.instance = await Certificate.deployed();
   }
 
   async registerCertificate(user: string, certHash: string) {
-    return this.instance.registerCertificate(certHash, user, {
+    console.log(user);
+    console.log(certHash);
+    console.log(this.defaultAccount);
+    // console.log(this.instance);
+    return await this.instance.registerCertificate(certHash, user, {
       from: this.defaultAccount,
-      gas: 300_000,
+      gas: 300000,
     });
   }
 
   async getCertificate(user: string): Promise<string> {
-    return this.instance.getCertificate(user, {
-      from: this.defaultAccount,
-    });
+    return await this.instance.getCertificate(user);
   }
 }
