@@ -21,13 +21,14 @@ export class TruffleService implements OnModuleInit {
     const netCfg = truffleConfig.networks.development;
     const url = `http://${netCfg.host || '127.0.0.1'}:${netCfg.port}`;
     // 1) build an HTTP provider…
-    const provider = new Web3.providers.HttpProvider(url) as any;
+    // const provider = new Web3.providers.HttpProvider(url) as any;
 
-    // 2) make the “on”, “once”, etc., no-ops so Truffle doesn’t blow up:
-    provider.on = () => {};
-    provider.once = () => {};
-    provider.removeListener = () => {};
-    this.web3 = new Web3(provider);
+    // // 2) make the “on”, “once”, etc., no-ops so Truffle doesn’t blow up:
+    // provider.on = () => {};
+    // provider.once = () => {};
+    // provider.removeListener = () => {};
+    // this.web3 = new Web3(provider);
+    const web3 = new Web3(url);
 
     // 2) get Ganache’s unlocked accounts
     const accounts = await this.web3.eth.getAccounts();
@@ -35,7 +36,7 @@ export class TruffleService implements OnModuleInit {
 
     // 3) wrap your Truffle artifact
     const Certificate = contract(CertificateArtifact as any);
-    Certificate.setProvider(provider);
+    // Certificate.setProvider(provider);
     // 4) grab the deployed instance
     this.instance = await Certificate.deployed();
   }
