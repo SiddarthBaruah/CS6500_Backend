@@ -1,0 +1,1216 @@
+{
+  "contractName": "CertificateRegistry",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "certHash",
+          "type": "string"
+        }
+      ],
+      "name": "CertificateRegistered",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "certificates",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "certHash",
+          "type": "string"
+        }
+      ],
+      "name": "registerCertificate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getCertificate",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"certHash\",\"type\":\"string\"}],\"name\":\"CertificateRegistered\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"certificates\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getCertificate\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"certHash\",\"type\":\"string\"}],\"name\":\"registerCertificate\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Certificates.sol\":\"CertificateRegistry\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Certificates.sol\":{\"keccak256\":\"0xe57d9e43febd1f621333d368a4ac3d67c16ced637d6a759fae6814f8e7691227\",\"urls\":[\"bzz-raw://49ad0096996db20cf6ade31c48bbee80a7e7114c0f36e918e46bd682486dd2cb\",\"dweb:/ipfs/QmQtUBRZ1jewwZRPxLA1W5u37WbeRRqtA6zohSLzpYNRAW\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506105ed806100206000396000f3fe608060405234801561001057600080fd5b50600436106100405760003560e01c806216e5261461004557806351eeb55114610102578063fd531e93146101bd575b600080fd5b6100876004803603602081101561005b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061027a565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100c75780820151818401526020810190506100ac565b50505050905090810190601f1680156100f45780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101bb6004803603602081101561011857600080fd5b810190808035906020019064010000000081111561013557600080fd5b82018360208201111561014757600080fd5b8035906020019184600183028401116401000000008311171561016957600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061032a565b005b6101ff600480360360208110156101d357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610433565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561023f578082015181840152602081019050610224565b50505050905090810190601f16801561026c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60006020528060005260406000206000915090508054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103225780601f106102f757610100808354040283529160200191610322565b820191906000526020600020905b81548152906001019060200180831161030557829003601f168201915b505050505081565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020908051906020019061037c929190610513565b503373ffffffffffffffffffffffffffffffffffffffff167fd44cad3cdd419006c9f1ed0038d0743151290b6bf6168a5b374344aeb501c7a8826040518080602001828103825283818151815260200191508051906020019080838360005b838110156103f65780820151818401526020810190506103db565b50505050905090810190601f1680156104235780820380516001836020036101000a031916815260200191505b509250505060405180910390a250565b60606000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105075780601f106104dc57610100808354040283529160200191610507565b820191906000526020600020905b8154815290600101906020018083116104ea57829003601f168201915b50505050509050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061055457805160ff1916838001178555610582565b82800160010185558215610582579182015b82811115610581578251825591602001919060010190610566565b5b50905061058f9190610593565b5090565b6105b591905b808211156105b1576000816000905550600101610599565b5090565b9056fea265627a7a723158206a63ba083ace6bd70d61d687a054bbe21a0367d651eb9f7b4661defb9937a87964736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100405760003560e01c806216e5261461004557806351eeb55114610102578063fd531e93146101bd575b600080fd5b6100876004803603602081101561005b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061027a565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100c75780820151818401526020810190506100ac565b50505050905090810190601f1680156100f45780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101bb6004803603602081101561011857600080fd5b810190808035906020019064010000000081111561013557600080fd5b82018360208201111561014757600080fd5b8035906020019184600183028401116401000000008311171561016957600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061032a565b005b6101ff600480360360208110156101d357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610433565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561023f578082015181840152602081019050610224565b50505050905090810190601f16801561026c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60006020528060005260406000206000915090508054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103225780601f106102f757610100808354040283529160200191610322565b820191906000526020600020905b81548152906001019060200180831161030557829003601f168201915b505050505081565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020908051906020019061037c929190610513565b503373ffffffffffffffffffffffffffffffffffffffff167fd44cad3cdd419006c9f1ed0038d0743151290b6bf6168a5b374344aeb501c7a8826040518080602001828103825283818151815260200191508051906020019080838360005b838110156103f65780820151818401526020810190506103db565b50505050905090810190601f1680156104235780820380516001836020036101000a031916815260200191505b509250505060405180910390a250565b60606000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105075780601f106104dc57610100808354040283529160200191610507565b820191906000526020600020905b8154815290600101906020018083116104ea57829003601f168201915b50505050509050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061055457805160ff1916838001178555610582565b82800160010185558215610582579182015b82811115610581578251825591602001919060010190610566565b5b50905061058f9190610593565b5090565b6105b591905b808211156105b1576000816000905550600101610599565b5090565b9056fea265627a7a723158206a63ba083ace6bd70d61d687a054bbe21a0367d651eb9f7b4661defb9937a87964736f6c63430005100032",
+  "sourceMap": "60:569:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;60:569:0;;;;;;;",
+  "deployedSourceMap": "60:569:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;60:569:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;150:46;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;150:46:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;150:46:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;327:173;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;327:173:0;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;327:173:0;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;327:173:0;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;327:173:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;327:173:0;;;;;;;;;;;;;;;:::i;:::-;;508:118;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;508:118:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;508:118:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;150:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;327:173::-;425:8;398:12;:24;411:10;398:24;;;;;;;;;;;;;;;:35;;;;;;;;;;;;:::i;:::-;;471:10;449:43;;;483:8;449:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;449:43:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;327:173;:::o;508:118::-;567:13;600:12;:18;613:4;600:18;;;;;;;;;;;;;;;593:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;508:118;;;:::o;60:569::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.5.0;\r\n\r\ncontract CertificateRegistry {\r\n    // Mapping from user address to certificate hash\r\n    mapping(address => string) public certificates;\r\n\r\n    // Event for new certificate registration\r\n    event CertificateRegistered(address indexed user, string certHash);\r\n\r\n    function registerCertificate(string memory certHash) public {\r\n        certificates[msg.sender] = certHash;\r\n        emit CertificateRegistered(msg.sender, certHash);\r\n    }\r\n\r\n    function getCertificate(address user) public view returns (string memory) {\r\n        return certificates[user];\r\n    }\r\n}\r\n",
+  "sourcePath": "E:\\Education\\B Tech\\Semester 8\\Network Security\\CourseProject\\Project\\Blockchain\\HealthChain_Secure\\contracts\\Certificates.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Certificates.sol",
+    "exportedSymbols": {
+      "CertificateRegistry": [
+        43
+      ]
+    },
+    "id": 44,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 43,
+        "linearizedBaseContracts": [
+          43
+        ],
+        "name": "CertificateRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 5,
+            "name": "certificates",
+            "nodeType": "VariableDeclaration",
+            "scope": 43,
+            "src": "150:46:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_string_storage_$",
+              "typeString": "mapping(address => string)"
+            },
+            "typeName": {
+              "id": 4,
+              "keyType": {
+                "id": 2,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "158:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "150:26:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_string_storage_$",
+                "typeString": "mapping(address => string)"
+              },
+              "valueType": {
+                "id": 3,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "169:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 11,
+            "name": "CertificateRegistered",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 10,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7,
+                  "indexed": true,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11,
+                  "src": "280:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "280:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9,
+                  "indexed": false,
+                  "name": "certHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11,
+                  "src": "302:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 8,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "302:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "279:39:0"
+            },
+            "src": "252:67:0"
+          },
+          {
+            "body": {
+              "id": 29,
+              "nodeType": "Block",
+              "src": "387:113:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 16,
+                        "name": "certificates",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "398:12:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_string_storage_$",
+                          "typeString": "mapping(address => string storage ref)"
+                        }
+                      },
+                      "id": 19,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 17,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 102,
+                          "src": "411:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 18,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "411:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "398:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20,
+                      "name": "certHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "425:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "398:35:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 22,
+                  "nodeType": "ExpressionStatement",
+                  "src": "398:35:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 24,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 102,
+                          "src": "471:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 25,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "471:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 26,
+                        "name": "certHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13,
+                        "src": "483:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 23,
+                      "name": "CertificateRegistered",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 11,
+                      "src": "449:21:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (address,string memory)"
+                      }
+                    },
+                    "id": 27,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "449:43:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 28,
+                  "nodeType": "EmitStatement",
+                  "src": "444:48:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 30,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerCertificate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13,
+                  "name": "certHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30,
+                  "src": "356:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 12,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "356:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "355:24:0"
+            },
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "387:0:0"
+            },
+            "scope": 43,
+            "src": "327:173:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 41,
+              "nodeType": "Block",
+              "src": "582:44:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 37,
+                      "name": "certificates",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5,
+                      "src": "600:12:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_string_storage_$",
+                        "typeString": "mapping(address => string storage ref)"
+                      }
+                    },
+                    "id": 39,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 38,
+                      "name": "user",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 32,
+                      "src": "613:4:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "600:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 36,
+                  "id": 40,
+                  "nodeType": "Return",
+                  "src": "593:25:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 42,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCertificate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 32,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 42,
+                  "src": "532:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "532:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "531:14:0"
+            },
+            "returnParameters": {
+              "id": 36,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 35,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 42,
+                  "src": "567:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 34,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "567:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "566:15:0"
+            },
+            "scope": 43,
+            "src": "508:118:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 44,
+        "src": "60:569:0"
+      }
+    ],
+    "src": "33:598:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Certificates.sol",
+      "exportedSymbols": {
+        "CertificateRegistry": [
+          43
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "33:23:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            43
+          ],
+          "name": "CertificateRegistry",
+          "scope": 44
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "certificates",
+              "scope": 43,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => string)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => string)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 2,
+                    "name": "ElementaryTypeName",
+                    "src": "158:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 3,
+                    "name": "ElementaryTypeName",
+                    "src": "169:6:0"
+                  }
+                ],
+                "id": 4,
+                "name": "Mapping",
+                "src": "150:26:0"
+              }
+            ],
+            "id": 5,
+            "name": "VariableDeclaration",
+            "src": "150:46:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "CertificateRegistered"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "user",
+                      "scope": 11,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 6,
+                        "name": "ElementaryTypeName",
+                        "src": "280:7:0"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "VariableDeclaration",
+                    "src": "280:20:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "certHash",
+                      "scope": 11,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 8,
+                        "name": "ElementaryTypeName",
+                        "src": "302:6:0"
+                      }
+                    ],
+                    "id": 9,
+                    "name": "VariableDeclaration",
+                    "src": "302:15:0"
+                  }
+                ],
+                "id": 10,
+                "name": "ParameterList",
+                "src": "279:39:0"
+              }
+            ],
+            "id": 11,
+            "name": "EventDefinition",
+            "src": "252:67:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "registerCertificate",
+              "scope": 43,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "certHash",
+                      "scope": 30,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 12,
+                        "name": "ElementaryTypeName",
+                        "src": "356:6:0"
+                      }
+                    ],
+                    "id": 13,
+                    "name": "VariableDeclaration",
+                    "src": "356:22:0"
+                  }
+                ],
+                "id": 14,
+                "name": "ParameterList",
+                "src": "355:24:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15,
+                "name": "ParameterList",
+                "src": "387:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 5,
+                                  "type": "mapping(address => string storage ref)",
+                                  "value": "certificates"
+                                },
+                                "id": 16,
+                                "name": "Identifier",
+                                "src": "398:12:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 102,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 17,
+                                    "name": "Identifier",
+                                    "src": "411:3:0"
+                                  }
+                                ],
+                                "id": 18,
+                                "name": "MemberAccess",
+                                "src": "411:10:0"
+                              }
+                            ],
+                            "id": 19,
+                            "name": "IndexAccess",
+                            "src": "398:24:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13,
+                              "type": "string memory",
+                              "value": "certHash"
+                            },
+                            "id": 20,
+                            "name": "Identifier",
+                            "src": "425:8:0"
+                          }
+                        ],
+                        "id": 21,
+                        "name": "Assignment",
+                        "src": "398:35:0"
+                      }
+                    ],
+                    "id": 22,
+                    "name": "ExpressionStatement",
+                    "src": "398:35:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 11,
+                              "type": "function (address,string memory)",
+                              "value": "CertificateRegistered"
+                            },
+                            "id": 23,
+                            "name": "Identifier",
+                            "src": "449:21:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 102,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 24,
+                                "name": "Identifier",
+                                "src": "471:3:0"
+                              }
+                            ],
+                            "id": 25,
+                            "name": "MemberAccess",
+                            "src": "471:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13,
+                              "type": "string memory",
+                              "value": "certHash"
+                            },
+                            "id": 26,
+                            "name": "Identifier",
+                            "src": "483:8:0"
+                          }
+                        ],
+                        "id": 27,
+                        "name": "FunctionCall",
+                        "src": "449:43:0"
+                      }
+                    ],
+                    "id": 28,
+                    "name": "EmitStatement",
+                    "src": "444:48:0"
+                  }
+                ],
+                "id": 29,
+                "name": "Block",
+                "src": "387:113:0"
+              }
+            ],
+            "id": 30,
+            "name": "FunctionDefinition",
+            "src": "327:173:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getCertificate",
+              "scope": 43,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "user",
+                      "scope": 42,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 31,
+                        "name": "ElementaryTypeName",
+                        "src": "532:7:0"
+                      }
+                    ],
+                    "id": 32,
+                    "name": "VariableDeclaration",
+                    "src": "532:12:0"
+                  }
+                ],
+                "id": 33,
+                "name": "ParameterList",
+                "src": "531:14:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 42,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 34,
+                        "name": "ElementaryTypeName",
+                        "src": "567:6:0"
+                      }
+                    ],
+                    "id": 35,
+                    "name": "VariableDeclaration",
+                    "src": "567:13:0"
+                  }
+                ],
+                "id": 36,
+                "name": "ParameterList",
+                "src": "566:15:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 36
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 5,
+                              "type": "mapping(address => string storage ref)",
+                              "value": "certificates"
+                            },
+                            "id": 37,
+                            "name": "Identifier",
+                            "src": "600:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 32,
+                              "type": "address",
+                              "value": "user"
+                            },
+                            "id": 38,
+                            "name": "Identifier",
+                            "src": "613:4:0"
+                          }
+                        ],
+                        "id": 39,
+                        "name": "IndexAccess",
+                        "src": "600:18:0"
+                      }
+                    ],
+                    "id": 40,
+                    "name": "Return",
+                    "src": "593:25:0"
+                  }
+                ],
+                "id": 41,
+                "name": "Block",
+                "src": "582:44:0"
+              }
+            ],
+            "id": 42,
+            "name": "FunctionDefinition",
+            "src": "508:118:0"
+          }
+        ],
+        "id": 43,
+        "name": "ContractDefinition",
+        "src": "60:569:0"
+      }
+    ],
+    "id": 44,
+    "name": "SourceUnit",
+    "src": "33:598:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x21B72b09b895d8ff042949Af8cf57a04BdBD7C7d",
+      "transactionHash": "0x8d0114b7f8c6cff4e5172b37abbae6d04fea2d876ca4fce0afdeb0c4af3796e5"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-04-26T14:44:37.790Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
