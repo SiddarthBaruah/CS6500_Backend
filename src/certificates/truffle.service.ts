@@ -24,6 +24,9 @@ export class TruffleService implements OnModuleInit {
     const url = `http://${netCfg.host || '127.0.0.1'}:${netCfg.port}`;
     // 1) build an HTTP provider…
     const provider = new Web3.providers.HttpProvider(url) as any;
+    // const provider = new Web3.providers.WebsocketProvider(
+    //   'ws://127.0.0.1:8545',
+    // ) as any;
     if (typeof provider.sendAsync !== 'function') {
       provider.sendAsync = provider.send.bind(provider);
     }
@@ -37,6 +40,7 @@ export class TruffleService implements OnModuleInit {
 
     // 3) wrap your Truffle artifact
     const Certificate = contract(CertificateArtifact as any);
+    Certificate.defaults({ pollingInterval: 200 });
     Certificate.setProvider(provider);
 
     // Explicitly set the network ID to match the deployed contract
@@ -55,11 +59,13 @@ export class TruffleService implements OnModuleInit {
     // console.log(this.instance);
     return await this.instance.registerCertificate(certHash, user, {
       from: this.defaultAccount,
-      gas: 300000,
+      gas: 1_000_000, // Increased gas limit to ensure sufficient resources
     });
   }
 
   async getCertificate(user: string): Promise<string> {
-    return await this.instance.getCertificate(user);
+    return await this.instance.getCertificate(user, {
+      from: this.defaultAccount,
+    });
   }
 }
