@@ -9,13 +9,19 @@ export class CertificatesController {
 
   @Post()
   async create(@Body() dto: RegisterCertificateDto) {
-    const receipt = await this.svc.register(dto.user, dto.certHash);
+    const receipt = await this.svc.register(dto.user, dto.certBytes);
     return { transactionHash: receipt.transactionHash };
   }
 
   @Get(':user')
   async find(@Param('user') user: string) {
-    const certHash = await this.svc.fetch(user);
-    return { user, certHash };
+    const certBytes = await this.svc.fetch(user);
+    return { user, certBytes };
+  }
+
+  @Get()
+  async findAll(){
+    const users = await this.svc.fetchall();
+    return users
   }
 }

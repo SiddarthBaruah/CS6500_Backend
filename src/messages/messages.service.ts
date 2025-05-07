@@ -27,6 +27,10 @@ export class MessagesService {
     });
   }
 
+  async findby(parameters: UpdateMessageDto) {
+    return await this.msgRepository.findBy(parameters);
+  }
+
   async update(id: number, updateMessageDto: UpdateMessageDto) {
     const city = await this.findOne(id);
     if (!city) {

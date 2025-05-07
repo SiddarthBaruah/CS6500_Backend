@@ -1,5 +1,5 @@
 export class CreateMessageDto {
     sender: string;
     receiver: string;
-    signedMessage: Record<string, any>
+    signedMessage: Record<string, any>;
 }

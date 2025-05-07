@@ -1,10 +1,10 @@
 // src/certificates/truffle.service.ts
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import Web3 from 'web3';
+import Web3, { Bytes } from 'web3';
 import { AbiItem } from 'web3-utils';
 import contract from '@truffle/contract';
-import CertificateArtifact from '../../build/contracts/CertificateRegistry_userInput.json';
+import CertificateArtifact from '../../build/contracts/CertificateRegistry.json';
 import path from 'path';
 const truffleConfig = require(path.resolve(process.cwd(), 'truffle-config.js'));
 
@@ -31,20 +31,21 @@ export class TruffleService implements OnModuleInit {
     this.defaultAccount = accounts[0];
   }
 
-  async registerCertificate(user: string, certHash: string) {
-    console.log(user);
-    console.log(certHash);
-    console.log(this.defaultAccount);
+  async registerCertificate(user: string, certBytes: string) {
     // console.log(this.instance);
+    const certBytesFormatted = this.web3.utils.hexToBytes(certBytes);
     return await this.instance.methods
-      .registerCertificate(certHash, user)
+      .registerCertificate(certBytesFormatted, user)
       .send({
         from: this.defaultAccount,
         gas: 1_000_000, // Increased gas limit to ensure sufficient resources
       });
   }
 
-  async getCertificate(user: string): Promise<string> {
+  async getCertificate(user: string): Promise<Bytes> {
     return await this.instance.methods.getCertificate(user).call();
+  }
+  async getAllUsers():Promise<string[]>{
+    return await this.instance.methods.getAllUsers().call();
   }
 }
